@@ -1,0 +1,33 @@
+import pandas as pd
+
+# Step 1: Import Libraries and Load Datasets
+df1 = pd.read_csv("dataset1.csv")
+df2 = pd.read_csv("dataset2.csv")
+
+# Step 2: Data Exploration and Cleaning
+# Explore the data for inconsistencies or missing values
+print("Dataset 1 Info:")
+print(df1.info())
+print("\nDataset 2 Info:")
+print(df2.info())
+
+# Clean the data - handle missing values, standardize formats, remove irrelevant columns
+df1 = df1.drop(["column_name1", "column_name2"], axis=1)
+df2 = df2.drop(["column_name3", "column_name4"], axis=1)
+
+df1 = df1.fillna(value={"column_name": default_value})
+df2 = df2.dropna(subset=["column_name"])
+
+# Step 3: Merge Datasets
+merged_df = pd.merge(df1, df2, on="common_column")
+
+# Step 4: Perform Data Transformations
+# Perform necessary transformations to derive new features and insights
+
+# Step 5: Save or Export Transformed Data
+merged_df.to_csv("transformed_data.csv", index=False)
+# Alternatively, export the data to a desired format (e.g., Excel, JSON, etc.)
+
+# Summary
+print("Data integration and transformation completed successfully!")
+print("The transformed data has been saved as transformed_data.csv.")
